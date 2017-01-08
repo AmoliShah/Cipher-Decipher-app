@@ -1,0 +1,94 @@
+<resources>
+    <string name="app_name">Cryptography</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_encryption">Encryption</string>
+    <string name="title_activity_decryption">Decryption</string>
+    <string name="title_activity_encrypt_techniques">EncryptTechniques</string>
+    <string name="title_activity_decrypt_techniques">DecryptTechniques</string>
+    <string name="title_activity_pfc">PFC</string>
+    <string name="large_text1">
+        "The Playfair cipher is a manual symmetric encryption technique and was the first literal digram substitution cipher. The scheme was invented in 1854 by Charles Wheatstone, but bears the name of Lord Playfair who promoted the use of the cipher.\n"
+       "The technique encrypts pairs of letters (bigrams or digrams), instead of single letters as in the simple substitution cipher and rather more complex Vigenère cipher systems then in use. \n"
+        "The Playfair cipher uses a 5 by 5 table containing a key word or phrase. Memorization of the keyword and 4 simple rules was all that was required to create the 5 by 5 table and use the cipher.
+
+To generate the key table, one would first fill in the spaces in the table with the letters of the keyword (dropping any duplicate letters), then fill the remaining spaces with the rest of the letters of the alphabet in order (usually omitting "Q" to reduce the alphabet to fit; other versions put both "I" and "J" in the same space). The key can be written in the top rows of the table, from left to right, or in some other pattern, such as a spiral beginning in the upper-left-hand corner and ending in the center. The keyword together with the conventions for filling in the 5 by 5 table constitute the cipher key.
+
+To encrypt a message, one would break the message into digrams (groups of 2 letters) such that, for example, "HelloWorld" becomes "HE LL OW OR LD", and map them out on the key table. If needed, append an uncommon monogram to complete the final digram. The two letters of the digram are considered as the opposite corners of a rectangle in the key table. Note the relative position of the corners of this rectangle. Then apply the following 4 rules, in order, to each pair of letters in the plaintext:
+
+If both letters are the same (or only one letter is left), add an "X" after the first letter. Encrypt the new pair and continue. Some variants of Playfair use "Q" instead of "X", but any letter, itself uncommon as a repeated pair, will do.
+If the letters appear on the same row of your table, replace them with the letters to their immediate right respectively (wrapping around to the left side of the row if a letter in the original pair was on the right side of the row).
+If the letters appear on the same column of your table, replace them with the letters immediately below respectively (wrapping around to the top side of the column if a letter in the original pair was on the bottom side of the column).
+If the letters are not on the same row or column, replace them with the letters on the same row respectively but at the other pair of corners of the rectangle defined by the original pair. The order is important – the first letter of the encrypted pair is the one that lies on the same row as the first letter of the plaintext pair.
+\nTo decrypt, use the INVERSE (opposite) of the last 3 rules, and the 1st as-is (dropping any extra "X"s, or "Q"s that do not make sense in the final message when finished)."
+
+       "\nExample\n\n"
+
+        "Using "playfair example" as the key (assuming that I and  J are interchangeable), the table becomes,\n"
+        "       P L A Y F
+        I R E X M
+        B C D G H
+        K N O Q S
+        T U V W Z\n\n"
+
+        "Encrypting the message "Hide the gold in the tree stump"\n\n"
+        "HI DE TH EG OL DI NT HE TR EX ES TU MP\n\n"
+        "BM OD ZB XD NA BE KU DM UI XM MO UV IF\n\n\n"
+
+    </string>
+    <string name="title_activity_cipher_text">CipherText</string>
+    <string name="title_activity_hfc">HFC</string>
+    <string name="large_text2">
+       "In classical cryptography, the Hill cipher is a polygraphic substitution cipher based on linear algebra. Invented by Lester S. Hill in 1929, it was the first polygraphic cipher in which it was practical (though barely) to operate on more than three symbols at once.\n\n"
+        "Each letter is represented by a number modulo 26. Often the simple scheme A = 0, B = 1, ..., Z = 25 is used, but this is not an essential feature of the cipher. To encrypt a message, each block of n letters (considered as an n-component vector) is multiplied by an invertible n × n matrix, against modulus 26. To decrypt the message, each block is multiplied by the inverse of the matrix used for encryption.\n\n"
+        "The matrix used for encryption is the cipher key, and it should be chosen randomly from the set of invertible n × n matrices (modulo 26). The cipher can, of course, be adapted to an alphabet with any number of letters; all arithmetic just needs to be done modulo the number of letters instead of modulo 26.\n\n"
+        "Consider the message 'ACT', and the key below (or GYBNQKURP in letters):\n\n"
+
+        "Since 'A' is 0, 'C' is 2 and 'T' is 19, the message is the vector:
+
+{\displaystyle {\begin{pmatrix}0\\2\\19\end{pmatrix}}} {\begin{pmatrix}0\\2\\19\end{pmatrix}}\n\n"
+        "Thus the enciphered vector is given by:
+
+{which corresponds to a ciphertext of 'POH'.\n\n"
+
+        "In order to decrypt, we turn the ciphertext back into a vector, then simply multiply by the inverse matrix of the key matrix (IFKVIVVMI in letters).\n\n"
+        "\n\n"
+    </string>
+    <string name="title_activity_cc">CC</string>
+    <string name="large_text3">
+    "Caesar cipher, also known as Caesar's cipher, the shift cipher, Caesar's code or Caesar shift, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of 3, D would be replaced by A, E would become B, and so on. \n\n"
+        "Example\n\n"
+        "The transformation can be represented by aligning two alphabets; the cipher alphabet is the plain alphabet rotated left or right by some number of positions. For instance, here is a Caesar cipher using a left rotation of three places, equivalent to a right shift of 23 (the shift parameter is used as the key):\n\n"
+        "Plain:    ABCDEFGHIJKLMNOPQRSTUVWXYZ\n
+Cipher:   XYZABCDEFGHIJKLMNOPQRSTUVW\n\n"
+        "Deciphering is done in reverse, with a right shift of 3.\n\n"
+        "The encryption can also be represented using modular arithmetic by first transforming the letters into numbers, according to the scheme, A = 0, B = 1,..., Z = 25.[2] Encryption of a letter {\displaystyle x} x by a shift n can be described mathematically as,\n\n"
+        "E(x) = ( x + n ) mod 26\n\n"
+        "Decryption is performed similarly,\n\n"
+        "D(x) = ( x - n ) mod 26\n\n"
+    </string>
+    <string name="title_activity_vc">VC</string>
+    <string name="large_text4">
+        "The Vigenère cipher is a method of encrypting alphabetic text by using a series of different Caesar ciphers based on the letters of a keyword. It is a simple form of polyalphabetic substitution.\n\n"
+        "Though the cipher is easy to understand and implement, for three centuries it resisted all attempts to break it; this earned it the description le chiffre indéchiffrable (French for 'the indecipherable cipher'). Many people have tried to implement encryption schemes that are essentially Vigenère ciphers.\n\n"
+        "To encrypt, a table of alphabets can be used, termed a tabula recta, Vigenère square, or Vigenère table. It consists of the alphabet written out 26 times in different rows, each alphabet shifted cyclically to the left compared to the previous alphabet, corresponding to the 26 possible Caesar ciphers. At different points in the encryption process, the cipher uses a different alphabet from one of the rows. The alphabet used at each point depends on a repeating keyword.\n\n"
+        "For example, suppose that the plaintext to be encrypted is:
+
+ATTACKATDAWN\n\n"
+        "The person sending the message chooses a keyword and repeats it until it matches the length of the plaintext, for example, the keyword "LEMON":
+
+LEMONLEMONLE\n\n"
+        "Each row starts with a key letter. The remainder of the row holds the letters A to Z (in shifted order). Although there are 26 key rows shown, you will only use as many keys (different alphabets) as there are unique letters in the key string, here just 5 keys, {L, E, M, O, N}. For successive letters of the message, we are going to take successive letters of the key string, and encipher each message letter using its corresponding key row. Choose the next letter of the key, go along that row to find the column heading that matches the message character; the letter at the intersection of [key-row, msg-col] is the enciphered letter.\n\n"
+        "For example, the first letter of the plaintext, A, is paired with L, the first letter of the key. So use row L and column A of the Vigenère square, namely L. Similarly, for the second letter of the plaintext, the second letter of the key is used; the letter at row E and column T is X. The rest of the plaintext is enciphered in a similar fashion:
+
+Plaintext:	ATTACKATDAWN
+Key:	LEMONLEMONLE
+Ciphertext:	LXFOPVEFRNHR\n\n"
+        "Decryption is performed by going to the row in the table corresponding to the key, finding the position of the ciphertext letter in this row, and then using the column's label as the plaintext. For example, in row L (from LEMON), the ciphertext L appears in column A, which is the first plaintext letter. Next we go to row E (from LEMON), locate the ciphertext X which is found in column T, thus T is the second plaintext letter.\n\n"
+
+    </string>
+    <string name="title_activity_plain_text">PlainText</string>
+</resources>
